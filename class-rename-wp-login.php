@@ -6,7 +6,7 @@ if ( defined( 'ABSPATH' ) && ! class_exists( 'Rename_WP_Login' ) ) {
 	/**
 	 * This class renames the WordPress login URL to a custom route.
 	 *
-	 * @package utexas-eid-auth
+	 * @package utexas-eid-auth-ryse
 	 */
 	class Rename_WP_Login {
 

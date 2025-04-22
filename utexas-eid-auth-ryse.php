@@ -1,14 +1,26 @@
 <?php
 
+# namespace RYSE\GitHubUpdaterDemo;
+
 /**
- * Plugin Name: UTexas EID Authentication
- * Version: 2.0.1
- * Description: UT-specific configuration for use with the WP SAML Auth plugin, including overrides for password resets and email notifications. DO NOT DISABLE THIS PLUGIN if you are using EID sign in on this site.
- * Author: Web Content Management Solutions, UT Austin
- * Text Domain: utexas-eid-auth
+ * Plugin Name:        UTexas EID Authentication
+ * Plugin URI:         https://github.com/utexas-wp/utexas-eid-auth-ryse
+ * Version:            2.0.1
+ * Description:        UT-specific configuration for use with the WP SAML Auth plugin, including overrides for password resets and email notifications. DO NOT DISABLE THIS PLUGIN if you are using EID sign in on this site.
+ * Author:             Web Content Management Solutions, UT Austin
+ * Text Domain:        utexas-eid-auth-ryse
+ * Update URI:         https://github.com/utexas-wp/utexas-eid-auth-ryse
+ * License:            GPLv2
+ * License URI:        https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package utexas-eid-auth
+ * @package utexas-eid-auth-ryse
  */
+
+
+require_once plugin_dir_path( __FILE__ ) . 'GitHubUpdater.php';
+$gitHubUpdater = new GitHubUpdater(__FILE__);
+$gitHubUpdater->setBranch('master');
+$gitHubUpdater->add();
 
 $utexas_eid_self_help_url = 'https://idmanager.its.utexas.edu/eid_self_help/';
 
@@ -61,3 +73,4 @@ add_filter( 'wp_saml_auth_option', 'utexas_wpsax_filter_option', 10, 2 );
 
 // @see manage-plugins.php
 register_activation_hook( __FILE__, 'utexas_wp_saml_auth_activate' );
+
