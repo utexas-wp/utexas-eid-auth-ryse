@@ -20,6 +20,7 @@
 require_once plugin_dir_path( __FILE__ ) . 'GitHubUpdater.php';
 $gitHubUpdater = new GitHubUpdater(__FILE__);
 $gitHubUpdater->setBranch('master');
+$gitHubUpdater->setChangelog('CHANGELOG.md');
 $gitHubUpdater->add();
 
 $utexas_eid_self_help_url = 'https://idmanager.its.utexas.edu/eid_self_help/';
